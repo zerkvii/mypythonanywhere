@@ -1,0 +1,49 @@
+{% extends 'Base/layout.html' %}
+{% block header %}
+    <div class="pageheader-content row">
+        <div class="col-full">
+            <div class="featured">
+                <div class="featured__column featured__column--big">
+{#                     {% for e in entry %}#}
+                        <div class="entry"
+                             style="background-image:url('{{ headline.content }}');">
+                            <div class="entry__content">
+                                <span class="entry__category"><a href="#0">{{ headline.get_post_type() }}</a></span>
+                                <h1><a href="#0" title="">{{ headline.title }}</a></h1>
+                                <div class="entry__info">
+                                     <a href="#0" class="entry__profile-pic">
+                                        <img class="avatar" src="/static/websrcs/photos/{{ headline.author.image }}" alt="{{ url_for('main.contact') }}">
+                                    </a>
+
+                                    <ul class="entry__meta">
+                                        <li><a href="#0">{{ headline.author.username }}</a></li>
+                                        <li>{{ headline.date }}</li>
+                                    </ul>
+                                </div>
+                            </div> <!-- end entry__content -->
+                        </div> <!-- end entry -->
+{#                    {% endfor %}#}
+                </div> <!-- end featured__big -->
+                <div class="featured__column featured__column--small">
+                    {% for entry in entries %}
+                        <div class="entry"
+                             style="background-image:url('{{ entry['content'] }}');">
+                            <div class="entry__content">
+                                <span class="entry__category"><a href="#0">{{ entry['type'] }}</a></span>
+                                <h1><a href="#0" title="">{{ entry['title'] }}</a></h1>
+                                <div class="entry__info">
+                                    <ul class="entry__meta">
+                                        <li><a href="#0">{{ entry['user_id'] }}</a></li>
+                                        <li>{{ entry['date'] }}</li>
+                                    </ul>
+                                </div>
+                            </div> <!-- end entry__content -->
+                        </div> <!-- end entry -->
+                    {% endfor %}
+                </div> <!-- end featured__small -->
+            </div> <!-- end featured -->
+        </div> <!-- end col-full -->
+    </div> <!-- end pageheader-content row -->
+
+
+{% endblock %}

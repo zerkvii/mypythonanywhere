@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    {% if title %}
+        <title>Zee - {{ title }}</title>
+    {% else %}
+        <title>Zee</title>
+    {% endif %}
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/vendor.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="/static/js/modernizr.js"></script>
+    <script src="/static/js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="/static/images/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/icons/favicon.ico" type="image/x-icon">
+</head>
+<body id="top">
+
+<!-- pageheader
+ ================================================== -->
+<section class="s-pageheader s-pageheader--home">
+    <header class="header">
+        <div class="header__content row">
+            <div class="header__logo">
+                <a class="logo" href="{{ url_for('main.index') }}">
+                    <img src="/static/images/zee.png" alt="Homepage">
+                </a>
+            </div> <!-- end header__logo -->
+            <ul class="header__social">
+                <li>
+                    <a href="https://weibo.com/3819860475/profile"><i class="fa fa-weibo" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/lyricly1/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.pinterest.com/zerkvii/"><i class="fa fa-pinterest-square"
+                                                                    aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="https://github.com/zerkvii"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+                </li>
+            </ul> <!-- end header__social -->
+
+            <a class="header__search-trigger" href="#0"></a>
+            <a href=""><i class="fa fa-weibo" aria-hidden="true"></i></a>
+            <div class="header__search">
+
+                <form role="search" method="get" class="header__search-form" action="#">
+                    <label>
+                        <span class="hide-content">搜索</span>
+                        <input type="search" class="search-field" placeholder="关键字" value="" name="s"
+                               title="Search for:" autocomplete="off">
+                    </label>
+                    <input type="submit" class="search-submit" value="Search">
+                </form>
+
+                <a href="#0" title="Close Search" class="header__overlay-close">关闭</a>
+
+            </div>  <!-- end header__search -->
+
+
+            <a class="header__toggle-menu" href="#0" title="Menu"><span>菜单</span></a>
+
+            <nav class="header__nav-wrap">
+
+                <h2 class="header__nav-heading h6">导航</h2>
+
+                <ul class="header__nav">
+                    <li class="current"><a href="{{ url_for('main.index') }}" title="">主页</a></li>
+                    <li class="has-children">
+                        <a href="#0" title="">分类</a>
+                        <ul class="sub-menu">
+                            <li><a href="{{ url_for('categories.life') }}">生活</a></li>
+                            <li><a href="{{ url_for('categories.health') }}">健康</a></li>
+                            <li><a href="{{ url_for('categories.family') }}">家庭</a></li>
+                            <li><a href="{{ url_for('categories.manage') }}">管理</a></li>
+                            <li><a href="{{ url_for('categories.travel') }}">旅行</a></li>
+                            <li><a href="{{ url_for('categories.work') }}">工作</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <a href="#0" title="">博客</a>
+                        <ul class="sub-menu">
+                            <li><a href="{{ url_for('posts.video_posts') }}">视频</a></li>
+                            <li><a href="{{ url_for('posts.audio_posts') }}">声音</a></li>
+                            <li><a href="{{ url_for('posts.photo_posts') }}">相册</a></li>
+                            <li><a href="{{ url_for('posts.word_posts') }}">文字</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('main.about') }}" title="">关于</a></li>
+                    <li><a href="{{ url_for('main.contact') }}" title="">联系</a></li>
+                </ul> <!-- end header__nav -->
+            </nav> <!-- end header__nav-wrap -->
+        </div> <!-- header-content -->
+    </header> <!-- header -->
+    {% block header %}{% endblock %}
+</section> <!-- end s-pageheader -->
+{% block content %}{% endblock %}
+
+
+<div id="preloader">
+    <div id="loader">
+        <div class="line-scale">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+
+
+<!--import javascript files-->
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script src="/static/js/plugins.js"></script>
+<script src="/static/js/main.js"></script>
+
+</body>
+</html>
